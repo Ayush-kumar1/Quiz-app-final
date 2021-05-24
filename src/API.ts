@@ -2,10 +2,6 @@ import { useCategory } from './CategoryContext';
 import { shuffleArray } from './utils';
 
 
-
-
-
-
 export type Question = {
   category: string;
   correct_answer: string;
