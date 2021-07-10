@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { fetchQuizQuestions } from './API';
 // Components
-import QuestionCard from './components/QuestionCard';
+import QuestionCard from './components/QuestionCard/QuestionCard';
 // types
 import { QuestionsState, Difficulty } from './API';
 // Styles
 import { GlobalStyle, Wrapper } from './App.styles';
 import PersonIcon from '@material-ui/icons/Person';
 import logo1 from "./images/logo1.png"
-import {Link} from "react-router-dom";
+import {Link,useNavigate} from "react-router-dom";
+import { Button } from '@material-ui/core';
 
 export type AnswerObject = {
   question: string;
@@ -70,7 +71,8 @@ const App: React.FC = () => {
       setNumber(nextQ);
     }
   };
-
+ 
+  let navigate=useNavigate();
   return (
     <>
       <GlobalStyle />
@@ -87,7 +89,17 @@ const App: React.FC = () => {
                 <h2>Nginx Quiz</h2>
             </div>
             <div>
-               <PersonIcon fontSize="large"/>
+            <Button
+            className="logout-btn"
+            onClick={() => {
+              localStorage.clear();
+              navigate("/login");
+            }}
+            variant="contained"
+            color="secondary"
+          >
+            Logout
+          </Button>
             </div>
             </div>
         <h1>REACT QUIZ</h1>
@@ -108,11 +120,23 @@ const App: React.FC = () => {
             callback={checkAnswer}
           />
         )}
+
+        <div style={{display:"flex",gap:"1rem"}}>
         {!gameOver && !loading && userAnswers.length === number + 1 && number !== TOTAL_QUESTIONS - 1 ? (
           <button className='next' onClick={nextQuestion}>
             Next Question
           </button>
         ) : null}
+
+        {!gameOver && !loading && userAnswers.length === number + 1 && number !== TOTAL_QUESTIONS - 1 ? (
+          <Link to="/">
+          <button className='next' >
+            Exit game
+          </button>
+          </Link>
+        ) : null}
+        </div>
+
       </Wrapper>
     </>
   );

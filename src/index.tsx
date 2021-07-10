@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { CategoryProvider } from "./CategoryContext";
-import Home from "./Home";
+import Home from "./pages/Home/Home";
 import { BrowserRouter as Router } from "react-router-dom";
 import Mediator from "./Mediator";
 
@@ -12,3 +12,4 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+ 
