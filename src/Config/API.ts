@@ -1,5 +1,5 @@
-import { useCategory } from './CategoryContext';
-import { shuffleArray } from './utils';
+import { shuffleArray } from './shuffle';
+
 
 
 export type Question = {
@@ -30,6 +30,7 @@ export type QuestionsState = Question & { answers: string[] };
   // const endpoint="https://opentdb.com/api.php?amount=10&category=15&type=multiple"//video-game
   // const endpoint="https://opentdb.com/api.php?amount=10&category=15&type=multiple"//anime
   const data = await (await fetch(endpoint)).json();
+ 
 
   console.log(data)
   return data.results.map((question: Question) => ({

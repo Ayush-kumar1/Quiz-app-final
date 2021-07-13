@@ -64,7 +64,7 @@ function Signup() {
     <div className="signup-body">
       <div className="media_card_signup">
         <h1 className="brand-logo" style={{ margin: "0 auto" }}>
-          Matrix
+          Nginx
         </h1>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>

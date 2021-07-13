@@ -6,7 +6,7 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import PersonIcon from "@material-ui/icons/Person";
 import { Button } from "@material-ui/core";
 import { IconButton } from "@material-ui/core";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; 
 import logo1 from "../../images/logo1.png";
 import Homeimage from "../../images/Home.svg";
 
@@ -23,15 +23,7 @@ function Home() {
           <h2>Nginx Quiz</h2>
         </div>
         <div className="final-buttons">
-          {/* <IconButton
-            className="login-btn"
-            style={{ display: user ? "none" : "block" }}
-          >
-            <Link to="/login">
-              <PersonIcon />
-            </Link>
-          </IconButton> */}
-
+          
           <Button
             className="logout-btn"
             onClick={() => {

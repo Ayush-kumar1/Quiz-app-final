@@ -53,7 +53,7 @@ function Login() {
     <div className="login-body">
       <div className="media_card_login">
         <h1 className="brand-logo" style={{ margin: "0 auto" }}>
-          Matrix
+          Nginx
         </h1>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -93,9 +93,9 @@ function Login() {
           </div>
         </div>
       </div>
-      <ToastContainer />
-      <ToastContainer />
-      <ToastContainer />
+      <ToastContainer autoClose={2000} />
+      <ToastContainer autoclose={2000} />
+      <ToastContainer autoclose={2000} />
     </div>
   );
 }

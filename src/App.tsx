@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { fetchQuizQuestions } from './API';
-// Components
+import { fetchQuizQuestions } from './Config/API';
+
 import QuestionCard from './components/QuestionCard/QuestionCard';
-// types
-import { QuestionsState, Difficulty } from './API';
-// Styles
+
+import { QuestionsState, Difficulty } from './Config/API';
+
 import { GlobalStyle, Wrapper } from './App.styles';
 import PersonIcon from '@material-ui/icons/Person';
 import logo1 from "./images/logo1.png"
@@ -44,13 +44,13 @@ const App: React.FC = () => {
 
   const checkAnswer = (e: any) => {
     if (!gameOver) {
-      // User's answer
+      
       const answer = e.currentTarget.value;
-      // Check answer against correct answer
+      
       const correct = questions[number].correct_answer === answer;
-      // Add score if answer is correct
+      
       if (correct) setScore((prev) => prev + 1);
-      // Save the answer in the array for user answers
+      
       const answerObject = {
         question: questions[number].question,
         answer,
@@ -62,7 +62,7 @@ const App: React.FC = () => {
   };
 
   const nextQuestion = () => {
-    // Move on to the next question if not the last question
+    
     const nextQ = number + 1;
 
     if (nextQ === TOTAL_QUESTIONS) {
@@ -81,7 +81,7 @@ const App: React.FC = () => {
       <div className="nav">
             
             <div>
-              <Link to="/">
+              <Link to="/home">
                 <img style={{width:"4rem"}} src={logo1} alt="" />
               </Link>
             </div>
@@ -104,9 +104,16 @@ const App: React.FC = () => {
             </div>
         <h1>REACT QUIZ</h1>
         {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
+          <div style={{display:"flex",gap:"1rem"}}>
           <button className='start' onClick={startTrivia}>
             Start
           </button>
+          <Link to="/home">
+          <button className='start'>
+            Return to home
+          </button>
+          </Link>
+          </div>
         ) : null}
         {!gameOver ? <p className='score'>Score: {score}</p> : null}
         {loading ? <p>Loading Questions...</p> : null}
@@ -129,7 +136,7 @@ const App: React.FC = () => {
         ) : null}
 
         {!gameOver && !loading && userAnswers.length === number + 1 && number !== TOTAL_QUESTIONS - 1 ? (
-          <Link to="/">
+          <Link to="/home">
           <button className='next' >
             Exit game
           </button>
